@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Aniversário, Mariana ❤️</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:linear-gradient(180deg,#120019,#2d0b45,#ff5e9c);
+min-height:100vh;
+overflow-x:hidden;
+color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.card{
+width:100%;
+max-width:800px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+h1{
+font-size:38px;
+margin-bottom:15px;
+}
+
+button{
+margin:10px;
+padding:15px 30px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+font-size:18px;
+background:#ff4f8b;
+color:white;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#carta{
+display:none;
+margin-top:25px;
+text-align:left;
+background:white;
+color:#333;
+padding:25px;
+border-radius:20px;
+line-height:1.8;
+min-height:250px;
+}
+
+#contador{
+margin-top:20px;
+font-size:18px;
+font-weight:bold;
+color:#ffe9f3;
+}
+
+.heart{
+position:fixed;
+top:-20px;
+animation:fall linear forwards;
+pointer-events:none;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+.star{
+position:fixed;
+background:white;
+width:2px;
+height:2px;
+border-radius:50%;
+animation:blink 2s infinite;
+}
+
+@keyframes blink{
+50%{opacity:.2;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🎂 Feliz Aniversário, Meu Amor ❤️</h1>
+
+<p>Oi, Momo... 🥹❤️</p>
+<br>
+
+<p>Preparei uma pequena surpresa para você.</p>
+
+<br>
+
+<button onclick="mostrarCarta()">💌 Abrir meu presente</button>
+
+<a href="https://open.spotify.com/search/S%C3%B3%20N%C3%B3s%20Dois%20Tim%20Bernardes" target="_blank">
+<button>🎵 Nossa música</button>
+</a>
+
+<div id="contador"></div>
+
+<div id="carta">
+
+<div id="texto"></div>
+
+</div>
+
+</div>
+
+<script>
+
+for(let i=0;i<120;i++){
+
+let s=document.createElement("div");
+
+s.className="star";
+
+s.style.left=Math.random()*100+"vw";
+s.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(s);
+
+}
+
+setInterval(()=>{
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.fontSize=(15+Math.random()*25)+"px";
+
+h.style.animationDuration=(3+Math.random()*4)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),7000);
+
+},300);
+
+const inicio=new Date("2025-06-25");
+
+const hoje=new Date();
+
+const dias=Math.floor((hoje-inicio)/(1000*60*60*24));
+
+document.getElementById("contador").innerHTML=
+"💕 Estamos juntas há <b>"+dias+" dias</b>";
+
+const mensagem=`💕 Amor, feliz aniversário, meu bem!
+
+Hoje é um dia muito especial, porque celebramos a vida da pessoa que faz os meus dias mais felizes.
+
+Que Papai do Céu continue iluminando todos os seus passos, te protegendo e realizando cada um dos seus sonhos.
+
+Obrigada por cada momento, por cada conversa, por cada abraço e por todo amor que você me dá. Você trouxe paz para o meu coração e fez a minha vida muito mais bonita.
+
+Ao seu lado eu descobri o verdadeiro significado do amor. Seu sorriso ilumina os meus dias, seu abraço é o meu lugar favorito e sua companhia faz qualquer momento valer a pena.
+
+Espero comemorar muitos aniversários ao seu lado, construir uma linda história com você e viver muitos sonhos juntas.
+
+Em qualquer universo... eu escolheria você. ❤️🕸️
+
+Eu te amo infinitamente.
+
+Feliz aniversário, meu amor.
+
+Com todo meu amor,
+
+❤️ Samara`;
+
+let i=0;
+
+function mostrarCarta(){
+
+document.getElementById("carta").style.display="block";
+
+const texto=document.getElementById("texto");
+
+texto.innerHTML="";
+
+i=0;
+
+let efeito=setInterval(()=>{
+
+texto.innerHTML+=mensagem.charAt(i);
+
+i++;
+
+if(i>=mensagem.length){
+
+clearInterval(efeito);
+
+}
+
+},25);
+
+}
+
+</script>
+
+</body>
+</html>
